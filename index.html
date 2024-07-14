@@ -5,39 +5,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bnjm.dev</title>
-    <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <script src="https://unpkg.com/htmx.org@2.0.1"
+        integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/"
+        crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #333333;
-            color: #ffc471;
-            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #424242;
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
         }
 
-        .container {
+        header {
+            margin-top: 1%;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        #main {
+            margin-top: 2%;
+        }
+
+        footer {
             text-align: center;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-        }
-
-        p {
-            font-size: 1.2em;
-            margin-top: 0;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>bnjm.dev</h1>
+        <div class="row">
+            <div class="column">
+                <header>
+                    <h1>bnjm.dev</h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <dl>
+                    <dt>
+                        <a href="/index.html">/</a>
+                    </dt>
+                </dl>
+                <dd>
+                    <a hx-get="/about.html" hx-target="#main" hx-push-url="true">/about</a>
+                </dd>
+                <dd>
+                    <a hx-get="/contrib.html" hx-target="#main" hx-push-url="true">/proj+contrib</a>
+                </dd>
+            </div>
+            <div class="column column-50 column-offset-25"></div>
+            <hr/>
+        </div>
+        <div class="row">
+            <div class="column">
+                <main id="main">
+                    <h3>/</h3>
+                    <pre><code>
+                            -module(bnjm_dev).
+
+                            -export([main/1]).
+
+                            main(_Args) ->
+                            io:format("hello world~n"),
+                            erlang:halt(0).
+                        </code></pre>
+                </main>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <footer>
+                    <small>built with fotm tech and pretty much no love</small>
+                </footer>
+            </div>
+        </div>
     </div>
 </body>
 
